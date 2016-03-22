@@ -1,6 +1,7 @@
 ﻿namespace FieldControlApi
 {
-    public interface IConfiguration {
+    public interface IConfiguration
+    {
         string BaseUrl { get; }
     }
 }

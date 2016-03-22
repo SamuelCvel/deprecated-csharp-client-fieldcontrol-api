@@ -51,7 +51,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="Exceptions\AuthenticationException.cs" />
     <Compile Include="Exceptions\ClientNotAuthenticatedException.cs" />
-    <Compile Include="IConfiguration.cs" />
+    <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Lib\HttpRequester.cs" />
     <Compile Include="Lib\HttpRequesterResponse.cs" />
     <Compile Include="Lib\IHttpRequester.cs" />
