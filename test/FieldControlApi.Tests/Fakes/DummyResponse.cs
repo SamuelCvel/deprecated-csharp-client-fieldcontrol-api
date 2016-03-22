@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FieldControlApi.Tests.Fakes
 {
-    public class DummyResponse : Response
+    public class DummyResponse : Response<object>
     {
         public DummyResponse(string responseContent) : base(responseContent)
         {

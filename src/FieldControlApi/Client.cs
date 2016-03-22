@@ -6,6 +6,7 @@ using FieldControlApi.Requests;
 using FieldControlApi.Exceptions;
 using FieldControlApi.Responses;
 using FieldControlApi.Lib;
+using FieldControlApi.Resources;
 
 namespace FieldControlApi
 {
@@ -26,16 +27,17 @@ namespace FieldControlApi
 
         public void Authenticate(string email, string password)
         {
-            var response = _httpRequester.ExecuteRequest(new AuthenticateRequest(email, password));
-
+            var resource = new Authenticate(email, password);
+            var response = _httpRequester.ExecuteRequest(new AuthenticateRequest(resource));
             var authenticationResponse = new AuthenticateResponse(response.ResponseContent);
+            var authenticate = authenticationResponse.GetResource();
 
-            if (!authenticationResponse.Success)
+            if (!authenticate.Success)
             {
                 throw new AuthenticationException();
             }
 
-            AuthenticationToken = authenticationResponse.Token;
+            AuthenticationToken = authenticate.Token;
         }
 
         protected virtual void SetAuthenticationToken(Request request)
@@ -48,13 +50,14 @@ namespace FieldControlApi
             request.Token = AuthenticationToken;
         }
 
-        public TResponse Send<TRequest, TResponse>(TRequest request)
-               where TRequest : Request
-               where TResponse : Response
+        public TResponse Send<TResponse>(Request<TResponse> request)
+            where TResponse : class
         {
             SetAuthenticationToken(request);
-            var response = _httpRequester.ExecuteRequest(request);
-            return (TResponse)Activator.CreateInstance(typeof(TResponse), response.ResponseContent);
+            var restResponse = _httpRequester.ExecuteRequest(request);
+            var response = (Response<TResponse>)Activator.CreateInstance(typeof(Response<TResponse>), restResponse.ResponseContent);
+            var resource = response.GetResource();
+            return resource;
         }
     }
 }

@@ -1,7 +1,9 @@
+# Custom
 
-# Created by https://www.gitignore.io/api/visua,visualstudio
-
-#!! ERROR: visua is undefined. Use list command to see defined gitignore types !!#
+src/FieldControlApi.ConsoleApp/
+src/FieldControlApi.Integrated.Tests/
+FieldControlApi.ConsoleApp/
+FieldControlApi.Integrated.Tests/
 
 ### VisualStudio ###
 ## Ignore Visual Studio temporary files, build results, and

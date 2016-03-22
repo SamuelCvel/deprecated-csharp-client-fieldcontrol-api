@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="ClientTests.cs" />
     <Compile Include="Fakes\ClientProxy.cs" />
+    <Compile Include="Fakes\DummyResource.cs" />
     <Compile Include="Fakes\DummyResponse.cs" />
     <Compile Include="Fakes\DummyRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

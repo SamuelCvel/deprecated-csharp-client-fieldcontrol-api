@@ -49,9 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="Exceptions\AuthenticationException.cs" />
     <Compile Include="Exceptions\ClientNotAuthenticatedException.cs" />
     <Compile Include="Configuration\IConfiguration.cs" />
+    <Compile Include="Lib\CustomJsonSerializer.cs" />
     <Compile Include="Lib\HttpRequester.cs" />
     <Compile Include="Lib\HttpRequesterResponse.cs" />
     <Compile Include="Lib\IHttpRequester.cs" />
@@ -59,6 +61,9 @@
     <Compile Include="Requests\AuthenticateRequest.cs" />
     <Compile Include="Requests\CreateActivityRequest.cs" />
     <Compile Include="Requests\Request.cs" />
+    <Compile Include="Resources\Activity.cs" />
+    <Compile Include="Resources\Authenticate.cs" />
+    <Compile Include="Resources\Resource.cs" />
     <Compile Include="Responses\AuthenticateResponse.cs" />
     <Compile Include="Responses\Response.cs" />
   </ItemGroup>

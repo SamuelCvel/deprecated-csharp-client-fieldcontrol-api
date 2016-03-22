@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FieldControlApi", "src\Fiel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FieldControlApi.Tests", "test\FieldControlApi.Tests\FieldControlApi.Tests.csproj", "{C144995A-DC92-4A50-A7CA-1E48D8038821}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FieldControlApi.ConsoleApp", "FieldControlApi.ConsoleApp\FieldControlApi.ConsoleApp.csproj", "{A0954065-7F78-4C4B-BB07-7BAB291D3B10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C144995A-DC92-4A50-A7CA-1E48D8038821}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C144995A-DC92-4A50-A7CA-1E48D8038821}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C144995A-DC92-4A50-A7CA-1E48D8038821}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0954065-7F78-4C4B-BB07-7BAB291D3B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0954065-7F78-4C4B-BB07-7BAB291D3B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0954065-7F78-4C4B-BB07-7BAB291D3B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0954065-7F78-4C4B-BB07-7BAB291D3B10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

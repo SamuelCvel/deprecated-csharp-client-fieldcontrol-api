@@ -60,7 +60,7 @@ namespace FieldControlApi.Tests
                 AuthenticationToken = "abc"
             };
             
-            var request = new DummyRequest();
+            var request = new DummyRequest(new DummyResource());
             client.SetAuthenticationToken(request);
 
             Assert.AreEqual("abc", request.Token);
@@ -71,7 +71,7 @@ namespace FieldControlApi.Tests
         {
             var client = new ClientProxy();
 
-            Assert.Throws<ClientNotAuthenticatedException>(() => client.SetAuthenticationToken(new DummyRequest()));
+            Assert.Throws<ClientNotAuthenticatedException>(() => client.SetAuthenticationToken(new DummyRequest(new DummyResource())));
         }
 
         [Test]
@@ -87,7 +87,7 @@ namespace FieldControlApi.Tests
 
             var client = new Client(httpRequesterMock.Object);
             client.AuthenticationToken = "abc";
-            client.Send<DummyRequest, DummyResponse>(new DummyRequest());
+            client.Send(new DummyRequest(new DummyResource()));
 
             httpRequesterMock.Verify(c => c.ExecuteRequest(It.IsAny<Request>()), Times.Once);
         }

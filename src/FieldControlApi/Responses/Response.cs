@@ -7,15 +7,21 @@ using System.Threading.Tasks;
 
 namespace FieldControlApi.Responses
 {
-    public class Response
+    public class Response<TResource>
+        where TResource : class
     {
-        protected dynamic _responseObject = null;
+        protected TResource _responseObject = null;
         protected string _responseContent = null;
 
-        protected Response(string responseContent)
+        public Response(string responseContent)
         {
             _responseContent = responseContent;
-            _responseObject = JsonConvert.DeserializeObject<dynamic>(_responseContent);
+            _responseObject = JsonConvert.DeserializeObject<TResource>(_responseContent);
+        }
+
+        public TResource GetResource()
+        {
+            return _responseObject;
         }
     }
 }

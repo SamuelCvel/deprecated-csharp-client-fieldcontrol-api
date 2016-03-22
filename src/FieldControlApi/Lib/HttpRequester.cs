@@ -19,9 +19,24 @@ namespace FieldControlApi.Lib
 
         public HttpRequesterResponse ExecuteRequest(Request request)
         {
-            var restRequest = new RestRequest(request.Resource);
+            var restRequest = new RestRequest(request.ResourcePath);
+            restRequest.RequestFormat = DataFormat.Json;
+            restRequest.JsonSerializer = new CustomJsonSerializer();
+            
             restRequest.Method = (Method)Enum.Parse(typeof(Method), request.Method, true);
-            restRequest.AddObject(request.GetPayload());
+
+            if (request.Resource != null) { 
+                var payload = request.Resource.GetPayload();
+                restRequest.AddJsonBody(payload);
+            }
+
+            if (request.UrlSegments != null && request.UrlSegments.Any())
+            {
+                foreach (var urlSegment in request.UrlSegments)
+                {
+                    restRequest.AddUrlSegment(urlSegment.Segment, urlSegment.Value);
+                }
+            }
 
             if (!string.IsNullOrEmpty(request.Token))
             {

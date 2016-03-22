@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FieldControlApi.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,27 +7,15 @@ using System.Threading.Tasks;
 
 namespace FieldControlApi.Requests
 {
-    public class AuthenticateRequest : Request
+    public class AuthenticateRequest : Request<AuthenticateResult>
     {
-        public string Email { get; private set; }
-        public string Password { get; private set; }
-
-        public override string Resource { get { return "authenticate"; } }
+        public override string ResourcePath { get { return "authenticate"; } }
         public override string Method { get { return "POST"; } }
 
-        public AuthenticateRequest(string email, string password)
+        public AuthenticateRequest(Authenticate authenticate) 
+            : base(authenticate)
         {
-            Email = email;
-            Password = password;
-        }
-
-        public override object GetPayload()
-        {
-            return new
-            {
-                email = Email,
-                password = Password
-            };
+      
         }
     }
 }
