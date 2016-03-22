@@ -49,13 +49,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="Exceptions\AuthenticationException.cs" />
+    <Compile Include="Exceptions\ClientNotAuthenticatedException.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\AuthenticateRequest.cs" />
+    <Compile Include="Requests\CreateActivityRequest.cs" />
+    <Compile Include="Requests\Request.cs" />
+    <Compile Include="Responses\AuthenticateResponse.cs" />
+    <Compile Include="Responses\Response.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Requests\" />
-    <Folder Include="Responses\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
