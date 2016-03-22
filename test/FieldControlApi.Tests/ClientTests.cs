@@ -8,11 +8,11 @@ using NUnit.Framework;
 namespace FieldControlApi.Tests
 {
     /*
-        [✓] Authenticate should set _authenticationToken when ok
-        [✓] Authenticate should throws AuthenticationException when fail
+        [✓] Authenticate should set _authenticationToken in case of success
+        [✓] Authenticate should throws AuthenticationException in case of failure
 
-        [✓] SetAuthenticationToken should set request.Token when _authenticationToken is not null
-        [✓] SetAuthenticationToken should throws ClientNotAuthenticatedException when _authenticationToken is null or empty
+        [✓] SetAuthenticationToken should set request.Token when client is authenticated (contains authentication token)
+        [✓] SetAuthenticationToken should throws ClientNotAuthenticatedException when client is not authenticated (does not contains authentication token)
 
         [✓] Send should call _httpRequester.ExecuteRequest
     */
