@@ -25,7 +25,8 @@ namespace FieldControlApi.Lib
             
             restRequest.Method = (Method)Enum.Parse(typeof(Method), request.Method, true);
 
-            if (request.Resource != null) { 
+            if (request.Resource != null)
+            { 
                 var payload = request.Resource.GetPayload();
                 restRequest.AddJsonBody(payload);
             }
@@ -34,7 +35,15 @@ namespace FieldControlApi.Lib
             {
                 foreach (var urlSegment in request.UrlSegments)
                 {
-                    restRequest.AddUrlSegment(urlSegment.Segment, urlSegment.Value);
+                    restRequest.AddUrlSegment(urlSegment.Name, urlSegment.Value);
+                }
+            }
+
+            if (request.Parameters != null && request.Parameters.Any())
+            {
+                foreach (var parameter in request.Parameters)
+                {
+                    restRequest.AddQueryParameter(parameter.Name, parameter.Value);
                 }
             }
 

@@ -7,29 +7,24 @@ using System.Threading.Tasks;
 
 namespace FieldControlApi.Requests
 {
-    public class UrlSegment
+    public class RequestParameter
     {
-        public UrlSegment(string segment, string value)
+        public RequestParameter(string name, string value)
         {
-            Segment = segment;
+            Name = name;
             Value = value;
         }
 
-        public string Segment { get; set; }
+        public string Name { get; set; }
         public string Value { get; set; }
     }
 
-    public abstract  class Request {
-        protected Request(UrlSegment urlSegment)
+    public abstract class Request
+    {
+        protected Request(RequestParameter[] segments = null, RequestParameter[] parameters = null)
         {
-            UrlSegments = new UrlSegment[] {
-                urlSegment
-                };
-        }
-
-        protected Request(UrlSegment[] urlSegments)
-        {
-            UrlSegments = urlSegments;
+            UrlSegments = segments;
+            Parameters = parameters;
         }
 
         protected Request(Resource resource)
@@ -37,7 +32,8 @@ namespace FieldControlApi.Requests
             Resource = resource;
         }
 
-        public UrlSegment[] UrlSegments { get; set; }
+        public RequestParameter[] Parameters { get; set; }
+        public RequestParameter[] UrlSegments { get; set; }
         public string Token { get; set; }
         public abstract string ResourcePath { get; }
         public Resource Resource { get; private set; }
@@ -47,15 +43,13 @@ namespace FieldControlApi.Requests
     public abstract class Request<TResponse> : Request
         where TResponse : class
     {
-        protected Request(Resource resource) : base(resource)
+        protected Request(Resource resource) 
+            : base(resource)
         {
         }
 
-        protected Request(UrlSegment[] urlSegments) : base(urlSegments)
-        {
-        }
-
-        protected Request(UrlSegment urlSegment) : base(urlSegment)
+        protected Request(RequestParameter[] segments = null, RequestParameter[] parameters = null) 
+            : base(segments, parameters)
         {
         }
     }

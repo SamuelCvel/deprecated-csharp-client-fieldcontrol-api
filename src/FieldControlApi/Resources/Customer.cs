@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace FieldControlApi.Resources
 {
-    public abstract class Resource
+    public class Customer : Resource
     {
-        public int Id { get; set; }
 
-        public virtual object GetPayload()
-        {
-            return this;
-        }
     }
 }
