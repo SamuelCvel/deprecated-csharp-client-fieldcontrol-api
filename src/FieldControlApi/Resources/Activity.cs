@@ -27,8 +27,8 @@ namespace FieldControlApi.Resources
         public decimal Longitude { get; set; }
 
         public DateTime ScheduledTo { get; set; }
-        public DateTime StartedAt { get; set; }
-        public DateTime CompletedAt { get; set; }
+        public DateTime? StartedAt { get; set; }
+        public DateTime? CompletedAt { get; set; }
 
         public string Order { get; set; }
         public bool Archived { get; set; }
@@ -38,6 +38,6 @@ namespace FieldControlApi.Resources
         public bool TimeFixed { get; set; }
 
         public string FixedStartTime { get; set; }
-        public DateTime SharedLocationAt { get; set; }
+        public DateTime? SharedLocationAt { get; set; }
     }
 }
