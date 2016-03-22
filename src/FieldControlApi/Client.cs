@@ -29,7 +29,7 @@ namespace FieldControlApi
         {
             var resource = new Authenticate(email, password);
             var request = new AuthenticateRequest(resource);
-            var authenticationResult = Send(request, authenticationRequired: false);
+            var authenticationResult = Execute(request, authenticationRequired: false);
 
             if (!authenticationResult.Success)
             {
@@ -49,13 +49,13 @@ namespace FieldControlApi
             request.Token = AuthenticationToken;
         }
 
-        public TResponse Send<TResponse>(Request<TResponse> request)
+        public TResponse Execute<TResponse>(Request<TResponse> request)
             where TResponse : class
         {
-            return this.Send<TResponse>(request, authenticationRequired: true);
+            return this.Execute<TResponse>(request, authenticationRequired: true);
         }
 
-        private TResponse Send<TResponse>(Request<TResponse> request, bool authenticationRequired)
+        private TResponse Execute<TResponse>(Request<TResponse> request, bool authenticationRequired)
           where TResponse : class
         {
             if (authenticationRequired)

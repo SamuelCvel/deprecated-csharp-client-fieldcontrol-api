@@ -14,7 +14,7 @@ namespace FieldControlApi.Tests
         [✓] SetAuthenticationToken should set request.Token when client is authenticated (contains authentication token)
         [✓] SetAuthenticationToken should throws ClientNotAuthenticatedException when client is not authenticated (does not contains authentication token)
 
-        [✓] Send should call _httpRequester.ExecuteRequest
+        [✓] Execute should call _httpRequester.ExecuteRequest
     */
 
     [TestFixture]
@@ -75,7 +75,7 @@ namespace FieldControlApi.Tests
         }
 
         [Test]
-        public void Send_ShouldCallExecuteRequestOnHttpRequesterOnce()
+        public void Execute_ShouldCallExecuteRequestOnHttpRequesterOnce()
         {
             var httpRequesterMock = new Mock<IHttpRequester>();
             httpRequesterMock.Setup(c => c.ExecuteRequest(It.IsAny<Request>()))
@@ -87,7 +87,7 @@ namespace FieldControlApi.Tests
 
             var client = new Client(httpRequesterMock.Object);
             client.AuthenticationToken = "abc";
-            client.Send(new DummyRequest(new DummyResource()));
+            client.Execute(new DummyRequest(new DummyResource()));
 
             httpRequesterMock.Verify(c => c.ExecuteRequest(It.IsAny<Request>()), Times.Once);
         }
