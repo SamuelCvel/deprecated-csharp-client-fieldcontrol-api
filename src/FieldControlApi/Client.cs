@@ -12,11 +12,16 @@ namespace FieldControlApi
     public class Client
     {
         private IHttpRequester _httpRequester = null;
-        private string _authenticationToken = null;
+        public string AuthenticationToken { get; set; }
 
         public Client(IConfiguration configuration)
         {
             _httpRequester = new HttpRequester(configuration);
+        }
+
+        internal Client(IHttpRequester httpRequester)
+        {
+            _httpRequester = httpRequester;
         }
 
         public void Authenticate(string email, string password)
@@ -30,17 +35,17 @@ namespace FieldControlApi
                 throw new AuthenticationException();
             }
 
-            _authenticationToken = authenticationResponse.Token;
+            AuthenticationToken = authenticationResponse.Token;
         }
 
         protected virtual void SetAuthenticationToken(Request request)
         {
-            if (string.IsNullOrEmpty(_authenticationToken))
+            if (string.IsNullOrEmpty(AuthenticationToken))
             {
                 throw new ClientNotAuthenticatedException();
             }
 
-            request.Token = _authenticationToken;
+            request.Token = AuthenticationToken;
         }
 
         public TResponse Send<TRequest, TResponse>(TRequest request)
