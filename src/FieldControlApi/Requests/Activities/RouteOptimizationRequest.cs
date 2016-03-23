@@ -10,9 +10,7 @@ namespace FieldControlApi.Requests.Activities
     public class RouteOptimizationRequest : Request<RouteOptimizationResult>
     {
         public RouteOptimizationRequest(RouteOptimization routeOptimization) :
-            base(routeOptimization)
-        {
-
+            base(routeOptimization) {
         }
 
         public override string ResourcePath { get { return "activities/actions/optimize-routes"; } }

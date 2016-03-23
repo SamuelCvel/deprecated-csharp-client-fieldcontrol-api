@@ -9,7 +9,8 @@ namespace FieldControlApi.Requests.Activities
 {
     public class GetActivityRequest : Request<Activity>
     {
-        public GetActivityRequest(string id) : base(segments: new RequestParameter[] { new RequestParameter("id", id) })
+        public GetActivityRequest(string id) 
+            : base(segments: new RequestParameter[] { new RequestParameter("id", id) })
         {
         }
 
