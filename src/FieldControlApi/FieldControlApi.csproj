@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Exceptions\RequestErrorException.cs" />
     <Compile Include="Exceptions\AuthenticationException.cs" />
     <Compile Include="Exceptions\ClientNotAuthenticatedException.cs" />
     <Compile Include="Configuration\IConfiguration.cs" />

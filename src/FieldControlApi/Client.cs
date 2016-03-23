@@ -64,9 +64,14 @@ namespace FieldControlApi
             }
 
             var restResponse = _httpRequester.ExecuteRequest(request);
-            var response = (Response<TResponse>)Activator.CreateInstance(typeof(Response<TResponse>), restResponse.ResponseContent);
-            var resource = response.GetResource();
-            return resource;
+            if (restResponse.HttpStatusCode == 200)
+            {
+                var response = (Response<TResponse>)Activator.CreateInstance(typeof(Response<TResponse>), restResponse.ResponseContent);
+                var resource = response.GetResource();
+                return resource;
+            }
+
+            throw new RequestErrorException(restResponse.HttpStatusCode, restResponse.ResponseContent);
         }
 
     }
