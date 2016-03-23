@@ -1,5 +1,5 @@
-## csharp-fieldcontrol
-C# client provider for Field Control API (https://app.fieldcontrol.com.br/)
+## csharp-client-fieldcontrol-api
+Cliente para a API REST do [FieldControl](https://www.fieldcontrol.com.br)
 
 ### Criando o client
 
