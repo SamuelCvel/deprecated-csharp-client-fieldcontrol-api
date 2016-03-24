@@ -8,6 +8,23 @@ namespace FieldControlApi.Resources
 {
     public class Activity : Resource
     {
+        public Activity()
+        {
+
+        }
+
+        public Activity(Customer customer)
+        {
+            CustomerId = customer.Id;
+            ZipCode = customer.ZipCode;
+            Street = customer.Street;
+            Number = customer.Number;
+            City = customer.City;
+            State = customer.State;
+            Latitude = customer.Latitude;
+            Longitude = customer.Longitude;
+        }
+
         public string Identifier { get; set; }
         public string Description { get; set; }
 
