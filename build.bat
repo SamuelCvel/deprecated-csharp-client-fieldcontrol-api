@@ -1,0 +1,2 @@
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild src\\FieldControlApi\\FieldControlApi.csproj /p:Configuration=Release
+.nuget\NuGet.exe pack src\FieldControlApi\FieldControlApi.csproj -Prop Configuration=Release

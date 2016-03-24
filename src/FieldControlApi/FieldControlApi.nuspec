@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>lfreneda</authors>
+    <owners>lfreneda</owners>
+    <licenseUrl>https://github.com/FieldControl/csharp-client-fieldcontrol-api/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/FieldControl/csharp-client-fieldcontrol-api</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>
+    </releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>field control api route optimization acitivities remote team field services</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="8.0.3" />
+      <dependency id="RestSharp" version="105.2.3" />
+    </dependencies>
+  </metadata>
+</package>

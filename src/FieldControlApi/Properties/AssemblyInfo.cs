@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FieldControlApi")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("O Field Control é um aplicativo para gestão de equipe externa, que equilibra a satisfação dos clientes com a eficiência operacional das empresas prestadoras de serviço em campo.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("FieldControlApi")]
