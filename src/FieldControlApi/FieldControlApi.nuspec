@@ -6,8 +6,9 @@
     <title>$title$</title>
     <authors>lfreneda</authors>
     <owners>lfreneda</owners>
-    <licenseUrl>https://github.com/FieldControl/csharp-client-fieldcontrol-api/master/LICENSE</licenseUrl>
+    <licenseUrl>https://raw.githubusercontent.com/FieldControl/csharp-client-fieldcontrol-api/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/FieldControl/csharp-client-fieldcontrol-api</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/FieldControl/csharp-client-fieldcontrol-api/master/nuget.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>
