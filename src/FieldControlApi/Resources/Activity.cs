@@ -17,7 +17,7 @@ namespace FieldControlApi.Resources
     {
         public Activity()
         {
-            StatusString = "0";
+            Status = ActivityStatus.Scheduled;
         }
 
         public Activity(Customer customer)
@@ -37,7 +37,7 @@ namespace FieldControlApi.Resources
         public string Description { get; set; }
 
         [JsonProperty(PropertyName = "Status")]
-        public string StatusString { get; set; }
+        public string StatusString { get; private set; }
 
         [JsonIgnore]
         public ActivityStatus Status
