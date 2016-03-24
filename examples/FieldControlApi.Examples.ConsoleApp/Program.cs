@@ -26,6 +26,8 @@ namespace FieldControlApi.Examples.ConsoleApp
             CreateNewActivity(client);
             GetActivityById(client);
 
+            OptimizeRoutes(client);
+
             Console.Read();
         }
 
@@ -125,6 +127,21 @@ namespace FieldControlApi.Examples.ConsoleApp
             PrintObject(new { Token = client.AuthenticationToken });
             return client;
         }
+
+
+        private static void OptimizeRoutes(Client client)
+        {
+            PrintSeparator();
+            PrintHeader("Optimizing activities for given date: ");
+
+            var routeOptimization = new RouteOptimization() {
+                Date = new DateTime(2016, 3, 23)
+            };
+            var optimizationResult = client.Execute(new RouteOptimizationRequest(routeOptimization));
+
+            PrintObject(optimizationResult);
+        }
+
 
         private static void PrintObject(object obj)
         {
