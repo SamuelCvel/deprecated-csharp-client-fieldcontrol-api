@@ -43,17 +43,13 @@ namespace FieldControlApi.Examples.ConsoleApp
                 CustomerId = 1,
                 ServiceId = 1,
                 EmployeeId = null,
-                Archived = false,
                 Duration = 60,
-                Status = "0",
                 ZipCode = "15015000",
                 Street = "Avenida Doutor Alberto Andaló",
                 Number = "4075",
                 City = "São José do Rio Preto",
                 State = "São Paulo",
                 Description = "Activity from csharp client",
-                TimeFixed = false,
-                FixedStartTime = null,
                 Latitude = -20.798035m,
                 Longitude = -49.359166m
             };

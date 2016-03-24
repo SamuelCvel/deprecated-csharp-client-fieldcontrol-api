@@ -32,7 +32,6 @@ namespace FieldControlApi.Resources
         public int CustomerId { get; set; }
         public int ServiceId { get; set; }
         public int Duration { get; set; }
-        public string Status { get; set; }
 
         public string ZipCode { get; set; }
         public string Street { get; set; }
@@ -47,14 +46,9 @@ namespace FieldControlApi.Resources
         public DateTime? StartedAt { get; set; }
         public DateTime? CompletedAt { get; set; }
 
-        public string Order { get; set; }
-        public bool Archived { get; set; }
-
         public string ProblemDescription { get; set; }
         public string CanceledDescription { get; set; }
-        public bool TimeFixed { get; set; }
 
-        public string FixedStartTime { get; set; }
         public DateTime? SharedLocationAt { get; set; }
     }
 }
