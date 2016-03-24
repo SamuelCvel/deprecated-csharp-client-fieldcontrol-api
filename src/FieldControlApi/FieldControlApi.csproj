@@ -70,6 +70,7 @@
     <Compile Include="Resources\Activity.cs" />
     <Compile Include="Resources\Authenticate.cs" />
     <Compile Include="Resources\Customer.cs" />
+    <Compile Include="Resources\EnumMemberAttribute.cs" />
     <Compile Include="Resources\Resource.cs" />
     <Compile Include="Requests\Response.cs" />
     <Compile Include="Resources\RouteOptimization.cs" />

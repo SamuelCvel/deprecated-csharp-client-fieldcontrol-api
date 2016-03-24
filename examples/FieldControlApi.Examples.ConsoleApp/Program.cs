@@ -118,7 +118,7 @@ namespace FieldControlApi.Examples.ConsoleApp
                 BaseUrl = "http://api.fieldcontrol.com.br/"
             });
 
-            client.Authenticate("email@example.com", "password-secret");
+            client.Authenticate("lfreneda@gmail.com", "lindinho");
 
             PrintObject(new { Token = client.AuthenticationToken });
             return client;

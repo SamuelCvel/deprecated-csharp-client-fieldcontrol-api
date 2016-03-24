@@ -1,19 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 
 namespace FieldControlApi.Resources
 {
+    public enum ActivityStatus
+    {
+        Scheduled = 0,
+        InProgress = 1,
+        Done = 2,
+        Canceled = 3,
+        Reported = 4
+    }
+
     public class Activity : Resource
     {
         public Activity()
         {
-
+            StatusString = "0";
         }
 
         public Activity(Customer customer)
+            : this()
         {
             CustomerId = customer.Id;
             ZipCode = customer.ZipCode;
@@ -27,6 +35,16 @@ namespace FieldControlApi.Resources
 
         public string Identifier { get; set; }
         public string Description { get; set; }
+
+        [JsonProperty(PropertyName = "Status")]
+        public string StatusString { get; set; }
+
+        [JsonIgnore]
+        public ActivityStatus Status
+        {
+            get { return (ActivityStatus)(Convert.ToInt32(StatusString)); }
+            set { StatusString = ((int)value).ToString(); }
+        }
 
         public int? EmployeeId { get; set; }
         public int CustomerId { get; set; }
