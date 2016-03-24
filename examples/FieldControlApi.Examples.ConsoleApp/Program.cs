@@ -128,7 +128,6 @@ namespace FieldControlApi.Examples.ConsoleApp
             return client;
         }
 
-
         private static void OptimizeRoutes(Client client)
         {
             PrintSeparator();
@@ -141,7 +140,6 @@ namespace FieldControlApi.Examples.ConsoleApp
 
             PrintObject(optimizationResult);
         }
-
 
         private static void PrintObject(object obj)
         {
