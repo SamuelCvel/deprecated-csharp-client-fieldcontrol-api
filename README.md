@@ -56,3 +56,6 @@ var activity = new Activity()
 
 var createdActivity = client.Execute(new CreateActivityRequest(activity));
 ```
+
+### Exemplo de fluxo disponível [aqui](https://github.com/FieldControl/csharp-client-fieldcontrol-api/blob/master/docs/SimpleFlow.md)
+
