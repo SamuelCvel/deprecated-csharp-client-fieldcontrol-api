@@ -15,6 +15,13 @@ namespace FieldControlApi
         private IHttpRequester _httpRequester = null;
         public string AuthenticationToken { get; set; }
 
+        public Client()
+        {
+            _httpRequester = new HttpRequester(new Configuration.Configuration() {
+                BaseUrl = "http://api.fieldcontrol.com.br"
+            });
+        }
+
         public Client(IConfiguration configuration)
         {
             _httpRequester = new HttpRequester(configuration);
