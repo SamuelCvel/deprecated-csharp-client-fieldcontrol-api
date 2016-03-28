@@ -11,11 +11,25 @@ var client = new Client(new Configuration.Configuration {
 
 ### Autenticação
 
+Antes de invocar os métodos é necessário que o client esteja autenticado, para isso basta invocar o método ```Authenticate```
+
 ```c#
 client.Authenticate("email@exemplo.com", "password");
 ```
 
-### Atividades
+É necessário fornecer um e-mail e um appKey, solicite pelo e-mail: _integracoes@fieldcontrol.com.br_
+
+### Usando o client
+
+Para cada ação disponível existe uma classe de ```Request```, por exemplo:
+
+* ```CreateCustomerRequest```
+* ```GetCustomerRequest```
+* ```GetCustomersRequest```
+* ```CreateActivityRequest```
+* ```GetActivityRequest```
+
+É necessário fornecer um ```Request``` com a ação desejada no método Execute do Client
 
 ```c#
 var activity = new Activity()
@@ -41,13 +55,4 @@ var activity = new Activity()
 };
 
 var createdActivity = client.Execute(new CreateActivityRequest(activity));
-```
-
-### Otimização de Rotas
-
-```c#
-var routeOptimization = new RouteOptimization() {
-    Date = new DateTime(2016, 3, 23)
-};
-var optimizationResult = client.Execute(new RouteOptimizationRequest(routeOptimization));
 ```
