@@ -26,9 +26,47 @@ namespace FieldControlApi.Examples.ConsoleApp
             CreateNewActivity(client);
             GetActivityById(client);
 
+            GetServices(client);
+            CreateNewService(client);
+
+            GetActiveEmployees(client);
+
             OptimizeRoutes(client);
 
             Console.Read();
+        }
+
+        private static void CreateNewService(Client client)
+        {
+            PrintSeparator();
+            PrintHeader("Creating a new service: ");
+
+            var service = new Service()
+            {
+                Description = "Cleaning",
+                Duration = 60,
+            };
+
+            var savedService = client.Execute(new CreateServiceRequest(service));
+            PrintObject(savedService);
+        }
+
+        private static void GetServices(Client client)
+        {
+            PrintSeparator();
+            PrintHeader("Getting all services: ");
+
+            var services = client.Execute(new GetServicesRequest());
+            PrintObject(services);
+        }
+
+        private static void GetActiveEmployees(Client client)
+        {
+            PrintSeparator();
+            PrintHeader("Getting active employees: ");
+
+            var employees = client.Execute(new GetActiveEmployeesRequest(DateTime.Today));
+            PrintObject(employees);
         }
 
         private static void CreateNewActivity(Client client)

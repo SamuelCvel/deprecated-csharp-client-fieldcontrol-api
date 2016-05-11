@@ -66,9 +66,14 @@
     <Compile Include="Requests\Customers\CreateCustomerRequest.cs" />
     <Compile Include="Requests\Customers\GetCustomerRequest.cs" />
     <Compile Include="Requests\Customers\GetCustomersRequest.cs" />
+    <Compile Include="Requests\Employees\GetServicesRequest.cs" />
     <Compile Include="Requests\Request.cs" />
+    <Compile Include="Requests\Services\CreateCustomerRequest.cs" />
+    <Compile Include="Requests\Services\GetServicesRequest.cs" />
     <Compile Include="Resources\Activity.cs" />
     <Compile Include="Resources\Authenticate.cs" />
+    <Compile Include="Resources\Employee.cs" />
+    <Compile Include="Resources\Service.cs" />
     <Compile Include="Resources\Customer.cs" />
     <Compile Include="Resources\EnumMemberAttribute.cs" />
     <Compile Include="Resources\Resource.cs" />
