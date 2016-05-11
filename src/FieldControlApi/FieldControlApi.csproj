@@ -60,6 +60,7 @@
     <Compile Include="Lib\IHttpRequester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\Activities\CreateActivityRequest.cs" />
+    <Compile Include="Requests\Activities\GetActivitiesRequest.cs" />
     <Compile Include="Requests\Activities\GetActivityRequest.cs" />
     <Compile Include="Requests\Activities\RouteOptimizationRequest.cs" />
     <Compile Include="Requests\Auth\AuthenticateRequest.cs" />

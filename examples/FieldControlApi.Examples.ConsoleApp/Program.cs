@@ -25,6 +25,7 @@ namespace FieldControlApi.Examples.ConsoleApp
 
             CreateNewActivity(client);
             GetActivityById(client);
+            GetActivities(client);
 
             GetServices(client);
             CreateNewService(client);
@@ -34,6 +35,15 @@ namespace FieldControlApi.Examples.ConsoleApp
             OptimizeRoutes(client);
 
             Console.Read();
+        }
+
+        private static void GetActivities(Client client)
+        {
+            PrintSeparator();
+            PrintHeader("Getting activities from "+ new DateTime(2016,5,5).ToShortDateString() + ": ");
+
+            var activities = client.Execute(new GetActivitiesRequest(new DateTime(2016, 5, 5)));
+            PrintObject(activities);
         }
 
         private static void CreateNewService(Client client)
