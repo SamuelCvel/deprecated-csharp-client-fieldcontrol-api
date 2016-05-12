@@ -13,6 +13,8 @@ namespace FieldControlApi
     public class Client
     {
         private IHttpRequester _httpRequester = null;
+        private IConfiguration _configuration = null;
+
         public string AuthenticationToken { get; set; }
 
         public Client()
@@ -25,11 +27,17 @@ namespace FieldControlApi
         public Client(IConfiguration configuration)
         {
             _httpRequester = new HttpRequester(configuration);
+            _configuration = configuration;
         }
 
         internal Client(IHttpRequester httpRequester)
         {
             _httpRequester = httpRequester;
+        }
+
+        public void Authenticate()
+        {
+            Authenticate(_configuration.Username, _configuration.Password);
         }
 
         public void Authenticate(string email, string password)
