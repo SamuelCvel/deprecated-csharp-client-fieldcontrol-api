@@ -33,6 +33,7 @@ namespace FieldControlApi.Resources
             Longitude = customer.Longitude;
         }
 
+        public bool Archived { get; set; }
         public string Identifier { get; set; }
         public string Description { get; set; }
 
@@ -66,7 +67,11 @@ namespace FieldControlApi.Resources
 
         public string ProblemDescription { get; set; }
         public string CanceledDescription { get; set; }
+        public string DoneDescription { get; set; }
 
         public DateTime? SharedLocationAt { get; set; }
+
+        public string FixedStartTime { get; set; }
+        public bool TimeFixed { get { return !string.IsNullOrEmpty(FixedStartTime); } }
     }
 }
