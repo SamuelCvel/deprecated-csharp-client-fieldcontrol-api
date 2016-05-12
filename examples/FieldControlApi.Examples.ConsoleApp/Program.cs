@@ -24,6 +24,7 @@ namespace FieldControlApi.Examples.ConsoleApp
             SearchCustomersByName(client);
 
             CreateNewActivity(client);
+            CreateNewActivityWithTimeFixed(client);
             GetActivityById(client);
             GetActivities(client);
 
@@ -77,6 +78,34 @@ namespace FieldControlApi.Examples.ConsoleApp
 
             var employees = client.Execute(new GetActiveEmployeesRequest(DateTime.Today));
             PrintObject(employees);
+        }
+
+        private static void CreateNewActivityWithTimeFixed(Client client)
+        {
+            PrintSeparator();
+            PrintHeader("Creating a new activity with time fixed: ");
+
+            var activity = new Activity()
+            {
+                Identifier = Guid.NewGuid().ToString(),
+                ScheduledTo = DateTime.Today,
+                CustomerId = 1,
+                ServiceId = 1,
+                EmployeeId = null,
+                Duration = 60,
+                ZipCode = "15015000",
+                Street = "Avenida Doutor Alberto Andaló",
+                Number = "4075",
+                City = "São José do Rio Preto",
+                State = "São Paulo",
+                Description = "Activity from csharp client",
+                Latitude = -20.798035m,
+                Longitude = -49.359166m,
+                FixedStartTime = "15:00"
+            };
+
+            var savedActivity = client.Execute(new CreateActivityRequest(activity));
+            PrintObject(savedActivity);
         }
 
         private static void CreateNewActivity(Client client)
@@ -166,7 +195,7 @@ namespace FieldControlApi.Examples.ConsoleApp
                 BaseUrl = "http://api.fieldcontrol.com.br/"
             });
 
-            client.Authenticate("lfreneda@gmail.com", "lindinho");
+            client.Authenticate("lfreneda@gmail.com", "password");
 
             PrintObject(new { Token = client.AuthenticationToken });
             return client;
