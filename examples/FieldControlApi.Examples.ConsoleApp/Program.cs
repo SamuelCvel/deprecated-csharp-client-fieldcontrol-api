@@ -27,6 +27,7 @@ namespace FieldControlApi.Examples.ConsoleApp
             CreateNewActivityWithTimeFixed(client);
             GetActivityById(client);
             GetActivities(client);
+            GetActivitiesByRangeOfDates(client);
 
             GetServices(client);
             CreateNewService(client);
@@ -36,6 +37,18 @@ namespace FieldControlApi.Examples.ConsoleApp
             OptimizeRoutes(client);
 
             Console.Read();
+        }
+
+        private static void GetActivitiesByRangeOfDates(Client client)
+        {
+            PrintSeparator();
+
+            var from = new DateTime(2016, 1, 1);
+            var to = new DateTime(2016, 5, 15);
+            PrintHeader("Getting activities from " + from.ToShortDateString() + " to " + to.ToShortDateString());
+
+            var activities = client.Execute(new GetActivitiesRequest(from));
+            PrintObject(activities);
         }
 
         private static void GetActivities(Client client)

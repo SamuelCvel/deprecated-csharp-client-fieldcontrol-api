@@ -1,9 +1,6 @@
 ﻿using FieldControlApi.Resources;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FieldControlApi.Requests.Activities
 {
@@ -13,7 +10,13 @@ namespace FieldControlApi.Requests.Activities
             new RequestParameter("filter[where][scheduledTo]", scheduledTo.ToString("yyyy-MM-dd")) }) {
         }
 
-        public override string ResourcePath { get { return "activities"; } }
+        public GetActivitiesRequest(DateTime from, DateTime to) : base(segments: new RequestParameter[] {
+            new RequestParameter("from", from.ToString("yyyy-MM-dd")),
+            new RequestParameter("to", to.ToString("yyyy-MM-dd"))
+        }) {
+        }
+
+        public override string ResourcePath { get { return "activities/actions/find-by-date-range/{from}/{to}"; } }
         public override string Method { get { return "GET"; } }
     }
 }
